@@ -2,8 +2,9 @@
 
 # Cet index est utilisé lors de l’exécution à partir de VS en mode rapide (par défaut pour la configuration de débogage)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
+COPY nginx/api-cert.crt /usr/local/share/ca-certificates/api-cert.crt
+RUN update-ca-certificates
 EXPOSE 8080
 EXPOSE 8081
 
