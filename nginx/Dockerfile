@@ -7,7 +7,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Copy the custom Nginx configuration file into the container
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/api-cert.key /etc/ssl/private/api-cert.key
-COPY nginx/api-cert.crt /etc/ssl/certs/api-cert.
+COPY nginx/api-cert.crt /etc/ssl/certs/api-cert.crt
 
 COPY nginx/mvc-cert.key /etc/ssl/private/mvc-cert.key
 COPY nginx/mvc-cert.crt /etc/ssl/certs/mvc-cert.crt

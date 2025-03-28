@@ -6,8 +6,6 @@ services:
       dockerfile: ConferenceAttendees.API/Dockerfile
     ports: 
       - "7039:7039"
-    environment:
-      - ASPNETCORE_URLS=http://*:7039
     depends_on: [mssql, seq_logs]
     networks:
       - app-network
@@ -19,15 +17,13 @@ services:
       dockerfile: ConferenceAttendees.MVC/Dockerfile
     ports: 
       - "7129:7129"
-    environment:
-      - ASPNETCORE_URLS=http://*:7129
     depends_on:
       - conferenceattendees.api
     networks:
       - app-network
 
   mssql:
-    image: "mcr.microsoft.com/mssql/server"
+    image: pierrefraisse90/conferenceattendeedb
     container_name: sql2
     hostname: mssql
     environment:
